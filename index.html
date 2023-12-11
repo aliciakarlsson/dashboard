@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Dashboard</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="clocksection"><!--Tid och datum -->
+        <p id="clock" class="clock-style"></p>
+        <p id="date"></p>
+    </div>
+
+    <h1 id="title" contenteditable="true">Alicias Dashboard</h1>
+
+    <div class="container">
+        <section id="linksection" class="section"><!--Snabblänkar -->
+            <h2>Snabblänkar</h2>
+        </section>
+
+        <section id="weathersection" class="section"><!--Dagens väder -->
+            <h2>Dagens väder</h2>
+        </section>
+
+        <section id="externalapi" class="section"><!--Ngt ska hämtas från externt api -->
+            <h2>Lalala</h2>
+        </section>
+
+        <section id="notesection" class="section"><!--Anteckningar -->
+            <h2>Anteckningar</h2>
+            <textarea name="" id="notes" cols="30" rows="10" placeholder="Skriv här"></textarea>
+        </section>
+    </div>
+</body>
+</html>
