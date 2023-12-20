@@ -7,7 +7,7 @@ function getLocation() {
   }
 }
 
-//Hämtar väderinformationen baserat på plats
+//Hämtar väderinformationen baserat på platsen
 function getWeather(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
@@ -28,8 +28,6 @@ function getWeather(position) {
 
 // Funktion för att visa väderinformationen på sidan
 function displayWeather(weatherData) {
-  // Här kan du manipulera DOM för att visa väderdata på din webbsida
-  // Till exempel:
   const weatherElement = document.getElementById("weathersection");
   weatherElement.innerHTML = `<h2>Dagens väder</h2>
     <p id="temperature"> ${Math.floor(weatherData.main.temp)} °C</p>
@@ -37,6 +35,6 @@ function displayWeather(weatherData) {
     <p id="description">${weatherData.weather[0].description}</p>`;
 }
 
-// Anropa getLocation för att starta processen
+// Kallar på funktionen
 getLocation();
 
