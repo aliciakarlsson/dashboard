@@ -9,9 +9,10 @@ function getLocation() {
 
 //Hämtar väderinformationen baserat på platsen
 function getWeather(position) {
+  const weatherKey = "9c72aed1751adb576f1b1295a4006a13";
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=9c72aed1751adb576f1b1295a4006a13&lang=se&units=metric`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherKey}&lang=se&units=metric`;
 
   fetch(apiUrl)
     .then((response) => response.json())
