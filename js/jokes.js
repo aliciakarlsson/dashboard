@@ -1,32 +1,70 @@
-//Hämtar container från HTML
-const jokeHolder = document.getElementById('jokeholder');
+//Hämta container till skämt samt knapp
+const jokeHolder = document.getElementById("jokeholder");
+const generateButton = document.getElementById("generatebutton");
 
-//Tar skämtet från apin
-async function getJoke(){
-try {
-  const response = await fetch("https://v2.jokeapi.dev/joke/Any");
-  if (!response.ok) {
-    throw new Error("Problem med nätverket");
+// Funktion för att hämta skämtet från apin och spara det i localstorage
+async function getJoke() {
+  try {
+    const response = await fetch("https://v2.jokeapi.dev/joke/any");
+    if (!response.ok) {
+      throw new Error("Problem med nätverket");
+    }
+    const data = await response.json();
+
+    let jokeData = {};
+    //Om det är ett enradsskämt och kategorin inte är mörk
+    if (data.type === "single" && data.category !== "Dark") {
+      jokeData = {
+        type: data.type,
+        joke: data.joke,
+      };
+      //Om det är ett tvåmeningsskämt och kategorin inte är mörk
+    } else if (data.category !== "Dark") {
+      jokeData = {
+        type: data.type,
+        setup: data.setup,
+        delivery: data.delivery,
+      };
+    }
+
+    // Spara skämtet och datum i localstorage
+    localStorage.setItem(
+      "savedJoke",
+      JSON.stringify({
+        date: new Date().toLocaleDateString(),
+        joke: jokeData,
+      })
+    );
+
+    displayJoke(jokeData);
+  } catch (error) {
+    console.error("Ett fel uppstod:", error);
   }
-  const data = await response.json();
-//Om det är ett enradskämt 
-  if (data.type === "single") {
-    jokeHolder.innerHTML = `
-    <p id="joke">${data.joke}</p>
-    `
+}
+
+// Funktion för att visa skämtet
+function displayJoke(jokeData) {
+  if (jokeData.type === "single") {
+    jokeHolder.innerHTML = `<p id="joke">${jokeData.joke}</p>`;
   } else {
-    //Om det är ett tvåmeningsskämt
     jokeHolder.innerHTML = `
-    <p id="setup">${data.setup}</p>
-    <p id="delivery">${data.delivery}</p>
-    `
-
+      <p id="setup">${jokeData.setup}</p>
+      <p id="delivery">${jokeData.delivery}</p>
+    `;
   }
-} catch (error) {
-  console.error("Ett fel uppstod:", error);
-}
 }
 
-//Kallar på funktionen
-getJoke();
 
+// Funktion för att skicka ett nytt skämt vid klick
+generateButton.addEventListener("click", getJoke);
+
+// Kontrollera om det finns ett sparat skämt för dagens datum i localstorage vid sidans laddning
+document.addEventListener("DOMContentLoaded", () => {
+  const savedJoke = JSON.parse(localStorage.getItem("savedJoke"));
+
+  if (savedJoke && savedJoke.date === new Date().toLocaleDateString()) {
+    displayJoke(savedJoke.joke);
+  } else {
+    getJoke();
+  }
+});
