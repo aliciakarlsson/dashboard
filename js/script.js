@@ -48,4 +48,3 @@ window.addEventListener('load', () => {
         notes.value = savedNotes;
     }
 });
-
