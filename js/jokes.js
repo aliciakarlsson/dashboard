@@ -6,7 +6,7 @@ const generateButton = document.getElementById("generatebutton");
 async function getJoke() {
   try {
     const response = await fetch(
-      "https://v2.jokeapi.dev/joke/Programming,Miscellaneous"
+      "https://v2.jokeapi.dev/joke/Programming"
     );
     if (!response.ok) {
       throw new Error("Problem med nätverket");
