@@ -6,6 +6,10 @@
     <title>The Dashboard</title>
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/script.js" defer></script>
+    <script src="js/weather.js" defer></script>
+    <script src="js/background.js" defer></script>
+    <script src="js/jokes.js" defer></script>
+    <script src="js/links.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -21,14 +25,22 @@
     <div class="container">
         <section id="linksection" class="section"><!--Snabblänkar -->
             <h2>Snabblänkar</h2>
+            <ul id="linkcontainer">
+            </ul>
+            <input type="text" id="headlineinput" placeholder="   Rubrik">
+            <input type="url"  id="urlinput" placeholder="   URL">
+            <svg xmlns="http://www.w3.org/2000/svg" id="plus" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#000000" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
         </section>
-
-        <section id="weathersection" class="section"><!--Dagens väder -->
-            <h2>Dagens väder</h2>
+        
+        <section class="section"><!--Dagens väder -->
+            <div id="weathersection"></div>
         </section>
 
         <section id="externalapi" class="section"><!--Ngt ska hämtas från externt api -->
-            <h2>Lalala</h2>
+            <h2>Dagens skämt</h2>
+            <div id="jokeholder">
+            </div>
+            <button id="generatebutton">Nytt skämt</button>
         </section>
 
         <section id="notesection" class="section"><!--Anteckningar -->
@@ -36,5 +48,6 @@
             <textarea name="" id="notes" cols="30" rows="10" placeholder="Skriv här"></textarea>
         </section>
     </div>
+    <button id="randombackground">Slumpa ny bakgrund</button>
 </body>
 </html>

@@ -35,6 +35,9 @@ body{
 #title{
     font-size: 2.7rem;
     text-align: center;
+    background-color: var(--bg-clr);
+    padding: 1rem 2rem;
+    border-radius: 40px;
 }
 
 #title:focus,
@@ -64,7 +67,7 @@ h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
 }
 
 #notes{
@@ -82,3 +85,116 @@ h2{
     outline: none;
 }
 
+#linkcontainer{
+    height: 60%;
+}
+
+li{
+    list-style: none;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+#linksection{
+    
+}
+
+#headlineinput,
+#urlinput{
+    background-color: var(--bg-clr);
+    border-radius: 30px;
+    width: 42%;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: .8rem;
+}
+
+#headlineinput:focus,
+#urlinput:active,
+#urlinput:focus,
+#headlineinput:active{
+    outline: none;
+}
+
+.deletebutton{
+    background-color: transparent;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50%;
+    margin-left: .5rem;
+}
+
+.deletebutton:hover{
+    cursor: pointer;
+}
+
+#tempicon{
+    height: 1.2rem;
+}
+
+#weathersection{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#temperature{
+    font-size: 2.3rem;
+}
+
+#windspeed{
+    margin: .5rem;
+}
+
+#description{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#jokeholder{
+    text-align: center;
+    font-size: .8rem;
+    padding: .5rem;
+}
+
+#externalapi{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#generatebutton{
+    font-family: 'Poppins', sans-serif;
+    padding: .2rem .4rem;
+    background-color: rgb(148, 147, 147);
+    border: 2px solid white;
+    border-radius: 15px;
+    margin: .8rem;
+    font-weight: 600;
+}
+
+#generatebutton:hover{
+    cursor: pointer;
+}
+
+#joke,
+#setup{
+    font-weight: 600;
+}
+
+#randombackground{
+        font-family: 'Poppins', sans-serif;
+    padding: .2rem .4rem;
+    background-color: rgb(148, 147, 147);
+    border: 2px solid white;
+    border-radius: 15px;
+    margin: .8rem;
+    font-weight: 600;
+}

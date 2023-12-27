@@ -5,7 +5,9 @@ const generateButton = document.getElementById("generatebutton");
 // Funktion för att hämta skämtet från apin och spara det i localstorage
 async function getJoke() {
   try {
-    const response = await fetch("https://v2.jokeapi.dev/joke/any");
+    const response = await fetch(
+      "https://v2.jokeapi.dev/joke/Programming,Miscellaneous"
+    );
     if (!response.ok) {
       throw new Error("Problem med nätverket");
     }
@@ -13,13 +15,13 @@ async function getJoke() {
 
     let jokeData = {};
     //Om det är ett enradsskämt och kategorin inte är mörk
-    if (data.type === "single" && data.category !== "Dark") {
+    if (data.type === "single") {
       jokeData = {
         type: data.type,
         joke: data.joke,
       };
       //Om det är ett tvåmeningsskämt och kategorin inte är mörk
-    } else if (data.category !== "Dark") {
+    } else {
       jokeData = {
         type: data.type,
         setup: data.setup,

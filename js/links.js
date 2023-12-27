@@ -14,6 +14,7 @@ function addLink(title, url) {
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("deletebutton");
+  deleteButton.textContent = 'x';
   deleteButton.addEventListener("click", () => {
     listElement.remove();
     saveLinks();
